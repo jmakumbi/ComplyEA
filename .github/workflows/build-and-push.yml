@@ -53,5 +53,4 @@ jobs:
           build-args: |
             DEVEXPRESS_NUGET_KEY=${{ secrets.DEVEXPRESS_NUGET_KEY }}
             DEVEXPRESS_NUGET_USER=${{ secrets.DEVEXPRESS_NUGET_USER }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          no-cache: true
