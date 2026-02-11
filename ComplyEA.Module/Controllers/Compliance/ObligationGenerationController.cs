@@ -54,8 +54,59 @@ namespace ComplyEA.Module.Controllers.Compliance
                 parameters.Company = os.GetObject(currentCompany);
             }
 
-            e.View = Application.CreateDetailView(os, parameters);
+            // Compute preview count using a temporary ObjectSpace
+            RefreshPreviewCount(parameters);
+
+            var detailView = Application.CreateDetailView(os, parameters);
+            detailView.ObjectSpace.ObjectChanged += (s, args) =>
+            {
+                if (args.PropertyName == nameof(ObligationGenerationParameters.Year) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.Quarter) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.Month) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.Company) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeAnnual) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeQuarterly) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeMonthly))
+                {
+                    RefreshPreviewCount(detailView.CurrentObject as ObligationGenerationParameters);
+                }
+            };
+
+            e.View = detailView;
             e.DialogController.SaveOnAccept = false;
+        }
+
+        private void RefreshPreviewCount(ObligationGenerationParameters parameters)
+        {
+            if (parameters == null) return;
+
+            try
+            {
+                using (var tempOs = Application.CreateObjectSpace(typeof(Company)))
+                {
+                    var service = new ObligationGenerationService();
+                    int count;
+
+                    if (parameters.Company != null)
+                    {
+                        var company = tempOs.GetObject(parameters.Company);
+                        count = service.GenerateRecurringObligations(tempOs, company,
+                            parameters.Year, parameters.Quarter, parameters.Month);
+                    }
+                    else
+                    {
+                        count = service.GenerateObligationsForPeriod(tempOs,
+                            parameters.Year, parameters.Quarter, parameters.Month);
+                    }
+
+                    parameters.PreviewCount = count;
+                    // Do NOT commit — this is preview-only
+                }
+            }
+            catch
+            {
+                parameters.PreviewCount = null;
+            }
         }
 
         private void GenerateObligationsForPeriod_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)

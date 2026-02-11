@@ -1,4 +1,5 @@
 using System;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
@@ -12,6 +13,22 @@ namespace ComplyEA.Module.BusinessObjects.Compliance
     [DefaultClassOptions]
     [NavigationItem("Compliance")]
     [ImageName("BO_Task")]
+    [Appearance("Overdue", AppearanceItemType = "ViewItem", TargetItems = "*",
+        Context = "ListView", Criteria = "[Status.Code] = 'OVERDUE'",
+        BackColor = "255, 205, 210", FontColor = "198, 40, 40", FontStyle = System.Drawing.FontStyle.Bold)]
+    [Appearance("DueSoon", AppearanceItemType = "ViewItem", TargetItems = "*",
+        Context = "ListView",
+        Criteria = "[Status.Code] != 'OVERDUE' And [Status.IsTerminal] = false And [DueDate] < AddDays(LocalDateTimeNow(), 7)",
+        BackColor = "255, 243, 224", FontColor = "230, 81, 0")]
+    [Appearance("Completed", AppearanceItemType = "ViewItem", TargetItems = "*",
+        Context = "ListView", Criteria = "[Status.Code] = 'COMPLETED'",
+        BackColor = "232, 245, 233", FontColor = "46, 125, 50")]
+    [Appearance("Waived", AppearanceItemType = "ViewItem", TargetItems = "*",
+        Context = "ListView", Criteria = "[Status.Code] = 'WAIVED'",
+        BackColor = "245, 245, 245", FontColor = "158, 158, 158", FontStyle = System.Drawing.FontStyle.Italic)]
+    [Appearance("InProgress", AppearanceItemType = "ViewItem", TargetItems = "*",
+        Context = "ListView", Criteria = "[Status.Code] = 'INPROGRESS'",
+        BackColor = "227, 242, 253", FontColor = "21, 101, 192")]
     public class ComplianceObligation : BaseObject
     {
         public ComplianceObligation(Session session) : base(session) { }

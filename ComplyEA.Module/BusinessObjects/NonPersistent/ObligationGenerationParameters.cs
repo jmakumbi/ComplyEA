@@ -19,6 +19,7 @@ namespace ComplyEA.Module.BusinessObjects.NonPersistent
         public ObligationGenerationParameters()
         {
             Year = DateTime.Now.Year;
+            Quarter = (DateTime.Now.Month - 1) / 3 + 1;
             IncludeAnnual = true;
             IncludeQuarterly = true;
             IncludeMonthly = true;
@@ -61,6 +62,9 @@ namespace ComplyEA.Module.BusinessObjects.NonPersistent
 
         [Description("Include monthly filing requirements")]
         public bool IncludeMonthly { get; set; }
+
+        [Description("Estimated number of obligations that will be generated")]
+        public int? PreviewCount { get; set; }
 
         [Browsable(false)]
         public int? ResultCount { get; set; }

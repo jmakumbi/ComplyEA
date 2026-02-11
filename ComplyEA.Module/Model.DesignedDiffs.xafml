@@ -1,5 +1,34 @@
 ﻿<?xml version="1.0" ?>
 <Application Title="ComplyEA">
+  <NavigationItems>
+    <Items>
+      <Item Id="Compliance">
+        <Items>
+          <Item Id="ComplianceCockpit_NavigationItem" ViewId="ComplianceCockpit_DashboardView" Caption="Compliance Cockpit" ImageName="BO_Dashboard" Index="0" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Views>
+    <DashboardView Id="ComplianceCockpit_DashboardView" Caption="Compliance Cockpit" IsNewNode="True">
+      <Items IsNewNode="True">
+        <DashboardViewItem Id="OverdueObligations" ViewId="ComplianceObligation_ListView" Caption="Overdue Obligations" IsNewNode="True" />
+        <DashboardViewItem Id="UpcomingObligations" ViewId="ComplianceObligation_ListView" Caption="Upcoming (30 Days)" IsNewNode="True" />
+        <DashboardViewItem Id="PendingReminders" ViewId="ComplianceReminder_ListView" Caption="Pending Reminders" IsNewNode="True" />
+        <DashboardViewItem Id="StatusSummary" ViewId="ComplianceObligation_ListView" Caption="Status Summary" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" ShowCaption="False" Direction="Horizontal" IsNewNode="True">
+          <LayoutGroup Id="LeftColumn" ShowCaption="False" Direction="Vertical" RelativeSize="50" IsNewNode="True">
+            <LayoutItem Id="Item_OverdueObligations" ViewItem="OverdueObligations" ShowCaption="True" CaptionLocation="Top" RelativeSize="50" IsNewNode="True" />
+            <LayoutItem Id="Item_PendingReminders" ViewItem="PendingReminders" ShowCaption="True" CaptionLocation="Top" RelativeSize="50" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="RightColumn" ShowCaption="False" Direction="Vertical" RelativeSize="50" IsNewNode="True">
+            <LayoutItem Id="Item_UpcomingObligations" ViewItem="UpcomingObligations" ShowCaption="True" CaptionLocation="Top" RelativeSize="50" IsNewNode="True" />
+            <LayoutItem Id="Item_StatusSummary" ViewItem="StatusSummary" ShowCaption="True" CaptionLocation="Top" RelativeSize="50" IsNewNode="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
   </Views>
 </Application>

@@ -1,0 +1,343 @@
+/* ComplyEA Design Language - Custom Theme
+   Billable Foundation Palette for compliance platform
+   ================================================== */
+
+/* === CSS Variables === */
+:root {
+    /* Billable Foundation */
+    --complyea-dark: #450f00;
+    --complyea-orange: #eb9130;
+    --complyea-cream: #e8e1d1;
+
+    /* Extended Palette */
+    --complyea-surface: #FAFAF8;
+    --complyea-text-primary: #2D2018;
+    --complyea-text-secondary: #7A6E62;
+    --complyea-border: #D4CEC4;
+    --complyea-orange-hover: #D47E28;
+    --complyea-orange-light: #FDECD6;
+    --complyea-alt-row: #F5F0E8;
+
+    /* Semantic Colors */
+    --complyea-success: #2E7D32;
+    --complyea-warning: #E65100;
+    --complyea-danger: #C62828;
+    --complyea-info: #1565C0;
+}
+
+/* === Typography === */
+body,
+.dxbs-gridview,
+.dxbs-grid,
+.dx-blazor {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--complyea-text-primary);
+}
+
+/* === Navigation Sidebar === */
+.dxbs-navigation,
+.xaf-navigation,
+.nav-accordion,
+.dxbs-accordion {
+    background-color: var(--complyea-dark) !important;
+}
+
+.dxbs-navigation .nav-link,
+.dxbs-accordion .dxbs-accordion-item .nav-link,
+.xaf-navigation .nav-link {
+    color: var(--complyea-cream) !important;
+    font-size: 12px;
+    font-weight: 400;
+    height: 28px;
+    line-height: 28px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.dxbs-navigation .nav-link:hover,
+.dxbs-accordion .dxbs-accordion-item .nav-link:hover,
+.xaf-navigation .nav-link:hover {
+    background-color: #5A1800 !important;
+    color: var(--complyea-cream) !important;
+}
+
+.dxbs-navigation .nav-link.active,
+.dxbs-accordion .dxbs-accordion-item .nav-link.active,
+.xaf-navigation .nav-link.active {
+    background-color: #6B2200 !important;
+    color: var(--complyea-cream) !important;
+    border-left: 3px solid var(--complyea-orange) !important;
+}
+
+/* Navigation group headers */
+.dxbs-accordion .card-header,
+.dxbs-accordion .dxbs-accordion-item-header,
+.xaf-navigation .nav-group-header {
+    background-color: var(--complyea-dark) !important;
+    color: var(--complyea-cream) !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.dxbs-accordion .card-header:hover,
+.dxbs-accordion .dxbs-accordion-item-header:hover {
+    background-color: #5A1800 !important;
+}
+
+/* Collapse/expand icons in navigation */
+.dxbs-accordion .dxbs-accordion-item-header .oi,
+.dxbs-accordion .card-header .oi {
+    color: var(--complyea-cream) !important;
+}
+
+/* === Content Area === */
+.xaf-main-content,
+.content-area {
+    background-color: var(--complyea-surface);
+}
+
+/* === Grid Headers === */
+.dxbs-gridview .dxbs-grid-header,
+.dxbs-gridview thead th,
+.dxbs-gridview .dxbs-grid-header-content {
+    background-color: var(--complyea-dark) !important;
+    color: var(--complyea-cream) !important;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    height: 30px;
+}
+
+/* Grid sort indicators */
+.dxbs-gridview .dxbs-grid-header .oi,
+.dxbs-gridview thead th .oi {
+    color: var(--complyea-orange) !important;
+}
+
+/* === Grid Rows === */
+.dxbs-gridview tbody tr {
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    color: var(--complyea-text-primary);
+}
+
+.dxbs-gridview tbody tr:nth-child(even) {
+    background-color: var(--complyea-alt-row);
+}
+
+.dxbs-gridview tbody tr:nth-child(odd) {
+    background-color: var(--complyea-surface);
+}
+
+/* Grid cell values */
+.dxbs-gridview td {
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-color: var(--complyea-border) !important;
+}
+
+/* Grid filter row */
+.dxbs-gridview .dxbs-grid-filter-row,
+.dxbs-gridview tr.dxbs-filter-row {
+    background-color: var(--complyea-alt-row) !important;
+}
+
+/* Grid selected row */
+.dxbs-gridview tbody tr.dxbs-grid-selected-row,
+.dxbs-gridview tbody tr.table-active {
+    background-color: var(--complyea-orange-light) !important;
+}
+
+/* === Detail View Layout Groups === */
+.xaf-layout-group > .card-header,
+.dxbs-fl-group > .card-header,
+.xaf-detail-view .card-header {
+    background-color: var(--complyea-cream) !important;
+    color: var(--complyea-dark) !important;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--complyea-border);
+}
+
+.xaf-layout-group > .card-body,
+.dxbs-fl-group > .card-body {
+    padding: 12px;
+    border: 1px solid var(--complyea-border);
+}
+
+/* Detail view field labels */
+.xaf-detail-view .col-form-label,
+.xaf-detail-view label,
+.dxbs-fl-ctrl-lbl {
+    color: var(--complyea-text-secondary);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+/* Detail view field values */
+.xaf-detail-view .form-control,
+.xaf-detail-view .dxbs-textbox input {
+    color: var(--complyea-text-primary);
+    font-size: 12px;
+    border-color: var(--complyea-border);
+}
+
+/* Layout group margin */
+.xaf-layout-group,
+.dxbs-fl-group {
+    margin-bottom: 8px;
+}
+
+/* === Primary Action Buttons === */
+.xaf-action.btn-primary,
+.btn-primary,
+.xaf-toolbar .btn-primary {
+    background-color: var(--complyea-orange) !important;
+    border-color: var(--complyea-orange) !important;
+    color: #FFFFFF !important;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.xaf-action.btn-primary:hover,
+.btn-primary:hover,
+.xaf-toolbar .btn-primary:hover {
+    background-color: var(--complyea-orange-hover) !important;
+    border-color: var(--complyea-orange-hover) !important;
+}
+
+.xaf-action.btn-primary:active,
+.btn-primary:active,
+.xaf-toolbar .btn-primary:active {
+    background-color: var(--complyea-orange-hover) !important;
+    border-color: var(--complyea-orange-hover) !important;
+}
+
+/* === Dashboard Cards === */
+.xaf-dashboard-item,
+.xaf-dashboardview .card,
+.dashboard-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--complyea-border);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(69, 15, 0, 0.08);
+    padding: 12px;
+}
+
+.xaf-dashboard-item .card-header,
+.xaf-dashboardview .card .card-header,
+.dashboard-card-header {
+    color: var(--complyea-dark);
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--complyea-border);
+}
+
+/* Dashboard KPI values */
+.dashboard-kpi-value,
+.kpi-value {
+    color: var(--complyea-orange);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Dashboard KPI labels */
+.dashboard-kpi-label,
+.kpi-label {
+    color: var(--complyea-text-secondary);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* === Detail View Header === */
+.xaf-detail-view-header,
+.xaf-view-caption {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--complyea-text-primary);
+}
+
+/* === Form Input Borders === */
+.form-control,
+.dxbs-textbox,
+.dxbs-combobox,
+.dxbs-dropdown {
+    border-color: var(--complyea-border);
+}
+
+.form-control:focus,
+.dxbs-textbox:focus,
+.dxbs-focused {
+    border-color: var(--complyea-orange);
+    box-shadow: 0 0 0 0.2rem rgba(235, 145, 48, 0.25);
+}
+
+/* === Semantic Status Utility Classes === */
+.status-overdue {
+    background-color: #FFCDD2;
+    color: var(--complyea-danger);
+    font-weight: 700;
+}
+
+.status-due-soon {
+    background-color: #FFF3E0;
+    color: var(--complyea-warning);
+}
+
+.status-completed {
+    background-color: #E8F5E9;
+    color: var(--complyea-success);
+}
+
+.status-waived {
+    background-color: #F5F5F5;
+    color: #9E9E9E;
+    font-style: italic;
+}
+
+.status-in-progress {
+    background-color: #E3F2FD;
+    color: var(--complyea-info);
+}
+
+/* === DashboardView 2x2 Grid Layout === */
+.xaf-dashboardview .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.xaf-dashboardview .xaf-dashboard-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+/* === Scrollbar Styling (Webkit) === */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--complyea-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--complyea-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--complyea-text-secondary);
+}
