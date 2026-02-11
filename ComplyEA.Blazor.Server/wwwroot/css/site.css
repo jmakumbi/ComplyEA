@@ -11,15 +11,23 @@ app {
 
 .header-logo {
     flex-shrink: 0;
-    background-color: currentColor;
-    -webkit-mask: url('../images/Logo.svg');
-    mask: url('../images/Logo.svg');
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    width: 180px;
+    width: 120px;
     height: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
+    color: currentColor;
+    line-height: 24px;
+    overflow: hidden;
+    /* Hide the mask-based image and show text via ::after */
+    background: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+}
+
+.header-logo::after {
+    content: "ComplyEA";
 }
 
 /* ComplyEA branded loading spinner */

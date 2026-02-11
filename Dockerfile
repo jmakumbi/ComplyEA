@@ -29,11 +29,6 @@ RUN dotnet publish ComplyEA.Blazor.Server/ComplyEA.Blazor.Server.csproj \
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 WORKDIR /app
 
-# Install PostgreSQL client library for Npgsql
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgdiplus \
-    && rm -rf /var/lib/apt/lists/*
-
 COPY --from=build /app/publish .
 
 # Set environment variables
