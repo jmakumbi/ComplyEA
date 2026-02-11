@@ -35,5 +35,6 @@
     <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="20.2.13" />
     <PackageReference Include="DevExpress.Persistent.Base" Version="20.2.13" />
     <PackageReference Include="DevExpress.Persistent.BaseImpl" Version="20.2.13" />
+    <PackageReference Include="Npgsql" Version="4.1.13" />
   </ItemGroup>
 </Project>

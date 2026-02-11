@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  complyea:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DEVEXPRESS_NUGET_KEY: ${DEVEXPRESS_NUGET_KEY}
+        DEVEXPRESS_NUGET_USER: ${DEVEXPRESS_NUGET_USER:-DevExpress}
+    image: complyea:latest
+    container_name: complyea
+    ports:
+      - "${APP_PORT:-5000}:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__ConnectionString=XpoProvider=Postgres;Server=${DB_HOST:-postgres};Port=${DB_PORT:-5432};Database=${DB_NAME:-ComplyEA};User Id=${DB_USER:-complyea};Password=${DB_PASSWORD}
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: complyea-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-ComplyEA}
+      POSTGRES_USER: ${DB_USER:-complyea}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - complyea_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  complyea_pgdata:

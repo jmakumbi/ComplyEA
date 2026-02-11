@@ -218,6 +218,53 @@ Uses separate database `ComplyEAEasyTest`.
 | Compliance Officer | Manage compliance, view reports |
 | Company User | View-only access, upload documents |
 
+## Docker Deployment
+
+### Prerequisites
+
+- Docker and Docker Compose
+- DevExpress NuGet API key (from [nuget.devexpress.com](https://nuget.devexpress.com))
+
+### Quick Start
+
+1. Copy `.env.example` to `.env` and fill in your values:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your DevExpress NuGet key and database password
+   ```
+
+2. Build and run:
+   ```bash
+   bash scripts/docker-local.sh
+   ```
+
+3. Access the application at `http://localhost:5000`
+
+### Build Image Only
+
+```bash
+bash scripts/docker-build.sh
+```
+
+### Production Deployment
+
+The application uses PostgreSQL in production. Connection string format:
+```
+XpoProvider=Postgres;Server=<host>;Port=5432;Database=ComplyEA;User Id=<user>;Password=<password>
+```
+
+### ZimaOS Deployment
+
+Import `deploy/zimaos/docker-compose.yml` as a Docker Compose app in ZimaOS.
+
+### CI/CD
+
+GitHub Actions workflow (`.github/workflows/build-and-push.yml`) builds and pushes to GitHub Container Registry on push to `master` or version tags.
+
+Required GitHub Secrets:
+- `DEVEXPRESS_NUGET_KEY` - DevExpress NuGet API key
+- `DEVEXPRESS_NUGET_USER` - DevExpress NuGet username (default: `DevExpress`)
+
 ## License
 
 [Add your license here]

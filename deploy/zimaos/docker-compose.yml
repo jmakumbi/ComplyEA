@@ -1,0 +1,32 @@
+version: "3.8"
+
+# ZimaOS deployment for ComplyEA
+# Uses pre-built image from GitHub Container Registry
+# Deploy via ZimaOS Docker Compose app import
+
+services:
+  complyea:
+    image: ghcr.io/epitent/complyea:latest
+    container_name: complyea
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__ConnectionString=XpoProvider=Postgres;Server=complyea-db;Port=5432;Database=ComplyEA;User Id=complyea;Password=${DB_PASSWORD:-ComplyEA2024!}
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: complyea-db
+    environment:
+      POSTGRES_DB: ComplyEA
+      POSTGRES_USER: complyea
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-ComplyEA2024!}
+    volumes:
+      - complyea_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  complyea_pgdata:
