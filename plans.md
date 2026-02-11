@@ -6,9 +6,9 @@ Executed sequentially: white-labeling, design language enhancements, icon sourci
 
 ### Phase 1: XAF White-Label
 
-**Goal:** Remove all DevExpress/XAF branding; apply ComplyEA/EpiTent identity.
+**Goal:** Remove all DevExpress/XAF branding; apply ComplyEA/James S. K. Makumbi identity.
 
-- Brand: APP_NAME=ComplyEA, COMPANY_NAME=EpiTent Limited
+- Brand: APP_NAME=ComplyEA, COMPANY_NAME=James S. K. Makumbi
 - Support contact: GitHub Issues
 - Recommended skin: Office White
 - Files modified: Model.DesignedDiffs.xafml, Model.xafml, site.css, appsettings.json, 3x .csproj, _Host.cshtml

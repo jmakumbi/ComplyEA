@@ -6,9 +6,9 @@
     <AssemblyVersion>1.0.*</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Configurations>Debug;Release;EasyTest</Configurations>
-    <Company>EpiTent Limited</Company>
+    <Company>James S. K. Makumbi</Company>
     <Product>ComplyEA</Product>
-    <Copyright>Copyright © EpiTent Limited 2024-2026. All rights reserved.</Copyright>
+    <Copyright>Copyright © James S. K. Makumbi 2024-2026. All rights reserved.</Copyright>
     <Description>ComplyEA Blazor UI Module</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
