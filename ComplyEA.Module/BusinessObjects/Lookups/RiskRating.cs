@@ -7,7 +7,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("Security_Permission")]
+    [ImageName("RiskRating")]
     public class RiskRating : BaseLookup
     {
         public RiskRating(Session session) : base(session) { }

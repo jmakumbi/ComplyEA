@@ -11,7 +11,7 @@ namespace ComplyEA.Module.BusinessObjects.Organization
 {
     [DefaultClassOptions]
     [NavigationItem("Organization")]
-    [ImageName("BO_Person")]
+    [ImageName("CompanyContact")]
     public class CompanyContact : BaseObject
     {
         public CompanyContact(Session session) : base(session) { }

@@ -10,7 +10,7 @@ namespace ComplyEA.Module.BusinessObjects.Compliance
 {
     [DefaultClassOptions]
     [NavigationItem("Compliance")]
-    [ImageName("BO_Scheduler")]
+    [ImageName("ComplianceReminder")]
     public class ComplianceReminder : BaseObject
     {
         public ComplianceReminder(Session session) : base(session) { }

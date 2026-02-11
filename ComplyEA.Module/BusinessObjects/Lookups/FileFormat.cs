@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("BO_Document")]
+    [ImageName("FileFormat")]
     public class FileFormat : BaseLookup
     {
         public FileFormat(Session session) : base(session) { }

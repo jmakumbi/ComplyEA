@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("BO_Contract")]
+    [ImageName("ActType")]
     public class ActType : BaseLookup
     {
         public ActType(Session session) : base(session) { }

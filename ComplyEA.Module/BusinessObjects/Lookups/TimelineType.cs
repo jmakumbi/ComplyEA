@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("Scheduling_ShowTimeline")]
+    [ImageName("TimelineType")]
     public class TimelineType : BaseLookup
     {
         public TimelineType(Session session) : base(session) { }

@@ -2,11 +2,16 @@
 <Application Title="ComplyEA" Company="EpiTent Limited" Copyright="Copyright © EpiTent Limited 2024-2026. All rights reserved." AboutInfoString="ComplyEA Compliance Management System{0}Version {1}{0}© EpiTent Limited{0}Support: https://github.com/EpiTent/ComplyEA/issues">
   <NavigationItems>
     <Items>
-      <Item Id="Compliance">
+      <Item Id="Organization" ImageName="Nav_Organization" />
+      <Item Id="Regulatory" ImageName="Nav_Regulatory" />
+      <Item Id="Compliance" ImageName="Nav_Compliance">
         <Items>
-          <Item Id="ComplianceCockpit_NavigationItem" ViewId="ComplianceCockpit_DashboardView" Caption="Compliance Cockpit" ImageName="BO_Dashboard" Index="0" IsNewNode="True" />
+          <Item Id="ComplianceCockpit_NavigationItem" ViewId="ComplianceCockpit_DashboardView" Caption="Compliance Cockpit" ImageName="Nav_Compliance" Index="0" IsNewNode="True" />
         </Items>
       </Item>
+      <Item Id="Configuration" ImageName="Nav_Configuration" />
+      <Item Id="Administration" ImageName="Nav_Administration" />
+      <Item Id="Security" ImageName="Nav_Administration" />
     </Items>
   </NavigationItems>
   <Views>

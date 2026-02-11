@@ -7,7 +7,7 @@ namespace ComplyEA.Module.BusinessObjects.Regulatory
 {
     [DefaultClassOptions]
     [NavigationItem("Regulatory")]
-    [ImageName("BO_List")]
+    [ImageName("ActAcronym")]
     public class ActAcronym : BaseObject
     {
         public ActAcronym(Session session) : base(session) { }

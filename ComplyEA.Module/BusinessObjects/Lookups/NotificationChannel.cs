@@ -8,7 +8,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("BO_Notifications")]
+    [ImageName("NotificationChannel")]
     public class NotificationChannel : BaseLookup
     {
         public NotificationChannel(Session session) : base(session) { }

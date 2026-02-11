@@ -5,7 +5,18 @@
       <Action Id="EditModel" Enabled="False" />
       <Action Id="DiagnosticInfo" Enabled="False" />
       <Action Id="ModelDifferences" Enabled="False" />
-      <Action Id="LogoffCurrentUser" Caption="Sign Out" ToolTip="Sign out of ComplyEA" />
+      <Action Id="LogoffCurrentUser" Caption="Sign Out" ToolTip="Sign out of ComplyEA" ImageName="Action_Close" />
+      <Action Id="New" ImageName="Action_New" />
+      <Action Id="Save" ImageName="Action_Save" />
+      <Action Id="SaveAndClose" ImageName="Action_SaveAndClose" />
+      <Action Id="Edit" ImageName="Action_Edit" />
+      <Action Id="Delete" ImageName="Action_Delete" />
+      <Action Id="Refresh" ImageName="Action_Refresh" />
+      <Action Id="Cancel" ImageName="Action_Cancel" />
+      <Action Id="Close" ImageName="Action_Close" />
+      <Action Id="ListViewShowObject" ImageName="Action_Edit" />
+      <Action Id="FullTextSearch" ImageName="Action_Search" />
+      <Action Id="ExportController.Export" ImageName="Action_Export" />
     </Actions>
     <ActionToContainerMapping>
       <ActionContainer Id="RecordEdit" Caption="Actions" />

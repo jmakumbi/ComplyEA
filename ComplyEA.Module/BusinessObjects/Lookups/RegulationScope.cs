@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("Action_Grant")]
+    [ImageName("RegulationScope")]
     public class RegulationScope : BaseLookup
     {
         public RegulationScope(Session session) : base(session) { }

@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("BO_Category")]
+    [ImageName("SubscriptionType")]
     public class SubscriptionType : BaseLookup
     {
         public SubscriptionType(Session session) : base(session) { }

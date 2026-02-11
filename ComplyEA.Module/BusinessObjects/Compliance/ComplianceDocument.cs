@@ -10,7 +10,7 @@ namespace ComplyEA.Module.BusinessObjects.Compliance
 {
     [DefaultClassOptions]
     [NavigationItem("Compliance")]
-    [ImageName("BO_FileAttachment")]
+    [ImageName("ComplianceDocument")]
     public class ComplianceDocument : BaseObject
     {
         public ComplianceDocument(Session session) : base(session) { }

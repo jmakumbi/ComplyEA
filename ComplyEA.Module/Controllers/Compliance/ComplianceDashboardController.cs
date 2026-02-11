@@ -33,7 +33,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Overdue Obligations",
                 ToolTip = "View all overdue compliance obligations",
-                ImageName = "State_Task_WaitingForSomeoneElse"
+                ImageName = "Status_Overdue"
             };
             viewOverdueObligationsAction.Execute += ViewOverdueObligations_Execute;
 
@@ -42,7 +42,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Upcoming Deadlines",
                 ToolTip = "View obligations due in the next 30 days",
-                ImageName = "BO_Scheduler"
+                ImageName = "ComplianceReminder"
             };
             viewUpcomingDeadlinesAction.Execute += ViewUpcomingDeadlines_Execute;
 
@@ -51,7 +51,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Pending Reminders",
                 ToolTip = "View unsent reminders",
-                ImageName = "Action_Send"
+                ImageName = "NotificationChannel"
             };
             viewPendingRemindersAction.Execute += ViewPendingReminders_Execute;
 
@@ -60,7 +60,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "All Obligations",
                 ToolTip = "View all compliance obligations",
-                ImageName = "BO_Task"
+                ImageName = "ComplianceObligation"
             };
             viewAllObligationsAction.Execute += ViewAllObligations_Execute;
         }

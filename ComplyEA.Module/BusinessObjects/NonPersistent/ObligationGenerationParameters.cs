@@ -11,7 +11,7 @@ namespace ComplyEA.Module.BusinessObjects.NonPersistent
 {
     [DomainComponent]
     [DefaultClassOptions]
-    [ImageName("BO_Task")]
+    [ImageName("ObligationGenerationParameters")]
     public class ObligationGenerationParameters : IXafEntityObject
     {
         private IObjectSpace objectSpace;

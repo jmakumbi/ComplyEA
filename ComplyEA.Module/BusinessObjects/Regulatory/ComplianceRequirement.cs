@@ -9,7 +9,7 @@ namespace ComplyEA.Module.BusinessObjects.Regulatory
 {
     [DefaultClassOptions]
     [NavigationItem("Regulatory")]
-    [ImageName("BO_Task")]
+    [ImageName("ComplianceRequirement")]
     public class ComplianceRequirement : BaseObject
     {
         public ComplianceRequirement(Session session) : base(session) { }

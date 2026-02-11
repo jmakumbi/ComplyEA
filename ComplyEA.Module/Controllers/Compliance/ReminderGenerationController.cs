@@ -23,7 +23,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Generate Reminders",
                 ToolTip = "Generate reminder schedule for selected obligation(s)",
-                ImageName = "BO_Scheduler",
+                ImageName = "ComplianceReminder",
                 SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects
             };
             generateRemindersAction.Execute += GenerateReminders_Execute;
@@ -44,7 +44,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Generate All Reminders",
                 ToolTip = "Generate reminders for all pending obligations",
-                ImageName = "BO_Scheduler",
+                ImageName = "ComplianceReminder",
                 SelectionDependencyType = SelectionDependencyType.Independent
             };
             generateAllRemindersAction.Execute += GenerateAllReminders_Execute;
@@ -131,7 +131,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Generate Reminders",
                 ToolTip = "Generate reminder schedule for this obligation",
-                ImageName = "BO_Scheduler"
+                ImageName = "ComplianceReminder"
             };
             generateRemindersAction.Execute += GenerateReminders_Execute;
 

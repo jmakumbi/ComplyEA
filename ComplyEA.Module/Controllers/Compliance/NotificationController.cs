@@ -29,7 +29,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Send Due Reminders",
                 ToolTip = "Process and send all reminders that are due today or earlier",
-                ImageName = "Action_Send",
+                ImageName = "NotificationChannel",
                 SelectionDependencyType = SelectionDependencyType.Independent
             };
             sendDueRemindersAction.Execute += SendDueReminders_Execute;
@@ -49,7 +49,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Retry Failed",
                 ToolTip = "Retry sending all failed reminders",
-                ImageName = "Action_Redo",
+                ImageName = "Action_Refresh",
                 SelectionDependencyType = SelectionDependencyType.Independent
             };
             retryFailedAction.Execute += RetryFailed_Execute;
@@ -155,7 +155,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Send Now",
                 ToolTip = "Send this reminder immediately",
-                ImageName = "Action_Send"
+                ImageName = "NotificationChannel"
             };
             sendReminderAction.Execute += SendReminder_Execute;
 
@@ -164,7 +164,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Preview Message",
                 ToolTip = "Generate and preview the message that will be sent",
-                ImageName = "Action_Preview"
+                ImageName = "Action_Search"
             };
             previewMessageAction.Execute += PreviewMessage_Execute;
         }

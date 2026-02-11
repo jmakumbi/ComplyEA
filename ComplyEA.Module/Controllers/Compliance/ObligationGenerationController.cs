@@ -23,7 +23,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Generate Obligations",
                 ToolTip = "Generate compliance obligations for selected period",
-                ImageName = "BO_Task",
+                ImageName = "ComplianceObligation",
                 SelectionDependencyType = SelectionDependencyType.RequireSingleObject
             };
             generateObligationsForPeriodAction.CustomizePopupWindowParams += GenerateObligationsForPeriod_CustomizePopupWindowParams;
@@ -35,7 +35,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Generate for Current Year",
                 ToolTip = "Generate all compliance obligations for the current year",
-                ImageName = "Action_Grant",
+                ImageName = "ObligationGenerationParameters",
                 SelectionDependencyType = SelectionDependencyType.RequireSingleObject
             };
             generateObligationsForCompanyAction.Execute += GenerateObligationsForCurrentYear_Execute;

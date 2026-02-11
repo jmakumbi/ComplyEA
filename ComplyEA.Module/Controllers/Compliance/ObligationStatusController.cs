@@ -30,7 +30,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Change Status",
                 ToolTip = "Change the status of selected obligation(s)",
-                ImageName = "State_Task_Completed",
+                ImageName = "Status_Completed",
                 SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects,
                 ItemType = SingleChoiceActionItemType.ItemIsOperation
             };
@@ -41,7 +41,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Mark Complete",
                 ToolTip = "Mark selected obligation(s) as completed",
-                ImageName = "State_Task_Completed",
+                ImageName = "Status_Completed",
                 SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects,
                 ConfirmationMessage = "Are you sure you want to mark the selected obligation(s) as complete?"
             };
@@ -52,7 +52,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Mark Overdue",
                 ToolTip = "Mark past-due obligations as overdue",
-                ImageName = "State_Task_WaitingForSomeoneElse",
+                ImageName = "Status_Overdue",
                 SelectionDependencyType = SelectionDependencyType.Independent
             };
             markOverdueAction.Execute += MarkOverdue_Execute;
@@ -199,7 +199,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Change Status",
                 ToolTip = "Change the status of this obligation",
-                ImageName = "State_Task_Completed",
+                ImageName = "Status_Completed",
                 ItemType = SingleChoiceActionItemType.ItemIsOperation
             };
             changeStatusAction.Execute += ChangeStatus_Execute;
@@ -209,7 +209,7 @@ namespace ComplyEA.Module.Controllers.Compliance
             {
                 Caption = "Mark Complete",
                 ToolTip = "Mark this obligation as completed",
-                ImageName = "State_Task_Completed",
+                ImageName = "Status_Completed",
                 ConfirmationMessage = "Are you sure you want to mark this obligation as complete?"
             };
             markCompleteAction.Execute += MarkComplete_Execute;

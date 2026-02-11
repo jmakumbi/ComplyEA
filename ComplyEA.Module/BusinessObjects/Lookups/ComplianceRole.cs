@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("BO_Role")]
+    [ImageName("ComplianceRole")]
     public class ComplianceRole : BaseLookup
     {
         public ComplianceRole(Session session) : base(session) { }

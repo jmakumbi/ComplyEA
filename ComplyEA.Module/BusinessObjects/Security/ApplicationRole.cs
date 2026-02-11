@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Security
 {
     [DefaultClassOptions]
     [NavigationItem("Security")]
-    [ImageName("BO_Role")]
+    [ImageName("ApplicationRole")]
     public class ApplicationRole : PermissionPolicyRole
     {
         public ApplicationRole(Session session) : base(session) { }
