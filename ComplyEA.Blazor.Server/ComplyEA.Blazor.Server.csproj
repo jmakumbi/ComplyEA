@@ -5,6 +5,10 @@
     <AssemblyVersion>1.0.*</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Configurations>Debug;Release;EasyTest</Configurations>
+    <Company>EpiTent Limited</Company>
+    <Product>ComplyEA</Product>
+    <Copyright>Copyright © EpiTent Limited 2024-2026. All rights reserved.</Copyright>
+    <Description>ComplyEA Blazor Server Application</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG</DefineConstants>

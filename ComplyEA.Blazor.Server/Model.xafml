@@ -1,3 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="EditModel" Enabled="False" />
+      <Action Id="DiagnosticInfo" Enabled="False" />
+      <Action Id="ModelDifferences" Enabled="False" />
+      <Action Id="LogoffCurrentUser" Caption="Sign Out" ToolTip="Sign out of ComplyEA" />
+    </Actions>
+    <ActionToContainerMapping>
+      <ActionContainer Id="RecordEdit" Caption="Actions" />
+      <ActionContainer Id="View" Caption="View" />
+      <ActionContainer Id="Reports" Caption="Reports" />
+      <ActionContainer Id="Tools" Caption="Tools" />
+      <ActionContainer Id="Diagnostic" Caption="Diagnostic" />
+    </ActionToContainerMapping>
+  </ActionDesign>
+  <Localization>
+    <LocalizationGroup Name="DialogButtons">
+      <LocalizationItem Name="Close" Value="Close" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Texts">
+      <LocalizationItem Name="LogonCaption" Value="Sign In to ComplyEA" />
+      <LocalizationItem Name="LogoffCaption" Value="Sign Out" />
+    </LocalizationGroup>
+  </Localization>
 </Application>
