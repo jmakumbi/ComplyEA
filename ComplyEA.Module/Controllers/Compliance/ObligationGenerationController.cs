@@ -66,7 +66,8 @@ namespace ComplyEA.Module.Controllers.Compliance
                     args.PropertyName == nameof(ObligationGenerationParameters.Company) ||
                     args.PropertyName == nameof(ObligationGenerationParameters.IncludeAnnual) ||
                     args.PropertyName == nameof(ObligationGenerationParameters.IncludeQuarterly) ||
-                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeMonthly))
+                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeMonthly) ||
+                    args.PropertyName == nameof(ObligationGenerationParameters.IncludeAdhoc))
                 {
                     RefreshPreviewCount(detailView.CurrentObject as ObligationGenerationParameters);
                 }
@@ -91,12 +92,12 @@ namespace ComplyEA.Module.Controllers.Compliance
                     {
                         var company = tempOs.GetObject(parameters.Company);
                         count = service.GenerateRecurringObligations(tempOs, company,
-                            parameters.Year, parameters.Quarter, parameters.Month);
+                            parameters.Year, parameters.Quarter, parameters.Month, parameters.IncludeAdhoc);
                     }
                     else
                     {
                         count = service.GenerateObligationsForPeriod(tempOs,
-                            parameters.Year, parameters.Quarter, parameters.Month);
+                            parameters.Year, parameters.Quarter, parameters.Month, parameters.IncludeAdhoc);
                     }
 
                     parameters.PreviewCount = count;
@@ -124,12 +125,12 @@ namespace ComplyEA.Module.Controllers.Compliance
                 {
                     var company = os.GetObject(parameters.Company);
                     count = service.GenerateRecurringObligations(os, company,
-                        parameters.Year, parameters.Quarter, parameters.Month);
+                        parameters.Year, parameters.Quarter, parameters.Month, parameters.IncludeAdhoc);
                 }
                 else
                 {
                     count = service.GenerateObligationsForPeriod(os,
-                        parameters.Year, parameters.Quarter, parameters.Month);
+                        parameters.Year, parameters.Quarter, parameters.Month, parameters.IncludeAdhoc);
                 }
 
                 if (count > 0)

@@ -22,7 +22,7 @@ namespace ComplyEA.Module.Services
         // Default status code for new obligations
         private const string STATUS_PENDING = "PENDING";
 
-        public int GenerateObligationsForApplicableRegulation(IObjectSpace os, ApplicableRegulation reg, int year, int? quarter, int? month)
+        public int GenerateObligationsForApplicableRegulation(IObjectSpace os, ApplicableRegulation reg, int year, int? quarter, int? month, bool includeAdhoc = false)
         {
             if (reg == null || !reg.IsActive)
                 return 0;
@@ -108,14 +108,21 @@ namespace ComplyEA.Module.Services
                             count++;
                         break;
 
-                    // EVENT type requires an event date, skip automatic generation
+                    case TIMELINE_EVENT:
+                        // Event-driven: only include if IncludeAdhoc is set
+                        if (includeAdhoc)
+                        {
+                            if (CreateObligationIfNotExists(os, company, requirement, year, null, null, null))
+                                count++;
+                        }
+                        break;
                 }
             }
 
             return count;
         }
 
-        public int GenerateRecurringObligations(IObjectSpace os, Company company, int year, int? quarter, int? month)
+        public int GenerateRecurringObligations(IObjectSpace os, Company company, int year, int? quarter, int? month, bool includeAdhoc = false)
         {
             if (company == null || !company.IsActive)
                 return 0;
@@ -129,13 +136,13 @@ namespace ComplyEA.Module.Services
             int totalCount = 0;
             foreach (var reg in applicableRegs)
             {
-                totalCount += GenerateObligationsForApplicableRegulation(os, reg, year, quarter, month);
+                totalCount += GenerateObligationsForApplicableRegulation(os, reg, year, quarter, month, includeAdhoc);
             }
 
             return totalCount;
         }
 
-        public int GenerateObligationsForPeriod(IObjectSpace os, int year, int? quarter, int? month)
+        public int GenerateObligationsForPeriod(IObjectSpace os, int year, int? quarter, int? month, bool includeAdhoc = false)
         {
             var activeCompanies = os.GetObjects<Company>(
                 new BinaryOperator("IsActive", true));
@@ -143,7 +150,7 @@ namespace ComplyEA.Module.Services
             int totalCount = 0;
             foreach (var company in activeCompanies)
             {
-                totalCount += GenerateRecurringObligations(os, company, year, quarter, month);
+                totalCount += GenerateRecurringObligations(os, company, year, quarter, month, includeAdhoc);
             }
 
             return totalCount;

@@ -63,6 +63,9 @@ namespace ComplyEA.Module.BusinessObjects.NonPersistent
         [Description("Include monthly filing requirements")]
         public bool IncludeMonthly { get; set; }
 
+        [Description("Include ad-hoc requirements (event-driven and always/ongoing timelines)")]
+        public bool IncludeAdhoc { get; set; }
+
         [Description("Estimated number of obligations that will be generated")]
         public int? PreviewCount { get; set; }
 

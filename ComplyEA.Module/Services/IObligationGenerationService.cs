@@ -14,17 +14,17 @@ namespace ComplyEA.Module.Services
         /// <summary>
         /// Generates obligations for all requirements in an applicable regulation.
         /// </summary>
-        int GenerateObligationsForApplicableRegulation(IObjectSpace os, ApplicableRegulation reg, int year, int? quarter, int? month);
+        int GenerateObligationsForApplicableRegulation(IObjectSpace os, ApplicableRegulation reg, int year, int? quarter, int? month, bool includeAdhoc = false);
 
         /// <summary>
         /// Generates recurring obligations for a company for the specified period.
         /// </summary>
-        int GenerateRecurringObligations(IObjectSpace os, Company company, int year, int? quarter, int? month);
+        int GenerateRecurringObligations(IObjectSpace os, Company company, int year, int? quarter, int? month, bool includeAdhoc = false);
 
         /// <summary>
         /// Generates obligations for all companies for the specified period.
         /// </summary>
-        int GenerateObligationsForPeriod(IObjectSpace os, int year, int? quarter, int? month);
+        int GenerateObligationsForPeriod(IObjectSpace os, int year, int? quarter, int? month, bool includeAdhoc = false);
 
         /// <summary>
         /// Calculates the due date based on requirement timeline type and period.
