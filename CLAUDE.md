@@ -51,11 +51,31 @@ This is a **DevExpress XAF (eXpressApp Framework) Blazor Server application** us
 
 ### Database Configuration
 
+**Database**: PostgreSQL (all environments)
+
 Connection strings are in `ComplyEA.Blazor.Server/appsettings.json`:
-- Default: LocalDB SQL Server instance with database `ComplyEA`
-- EasyTest: Separate database `ComplyEAEasyTest` for automated UI testing
+- Dev: PostgreSQL at `192.168.0.7:5432`, user `complyea`, database `ComplyEA`
+- EasyTest: Same server, database `ComplyEAEasyTest`
+- Production: Configured in `appsettings.Production.json` (same PostgreSQL server)
+
+Connection string format (XPO auto-detects provider from `XpoProvider=` prefix):
+```
+XpoProvider=Postgres;Server=192.168.0.7;Port=5432;Database=ComplyEA;User Id=complyea;Password=<password>
+```
 
 Database schema updates are automatic when debugging (see `BlazorApplication.cs:27-29`).
+
+### Deployment
+
+- **Docker image**: `ghcr.io/jmakumbi/complyea:master` (private, requires ghcr.io auth)
+- **CI/CD**: GitHub Actions builds and pushes on every push to `master` (`.github/workflows/build-and-push.yml`)
+- **Target platform**: ZimaOS at `192.168.0.7`
+- **Deployment guide**: `deploy_to_zimaos.md` (local only, not in git — contains credentials)
+- **Docker compose template**: `deploy/zimaos/docker-compose.example.yml` (in git, placeholder values)
+
+GitHub Secrets required for CI/CD:
+- `DEVEXPRESS_NUGET_KEY` — DevExpress NuGet API key
+- `DEVEXPRESS_NUGET_USER` — DevExpress NuGet username
 
 ## DevExpress Version
 
@@ -249,3 +269,5 @@ private DateTime CreateDateSafe(int year, int month, int day)
 6. **Background jobs create their own ObjectSpace instances** via XPObjectSpaceProvider
 7. **Template placeholders use `{{Name}}` format** for email template processing
 8. **Call `View.ObjectSpace.Refresh()` after committing changes** in a different ObjectSpace to update the UI
+9. **Never commit credentials** — deployment files with secrets (`deploy_to_zimaos.md`, `deploy/zimaos/docker-compose.yml`) are gitignored. Use `.example` templates for committed reference.
+10. **PostgreSQL database names are case-sensitive** when quoted — always use `"ComplyEA"` (with quotes) in psql commands

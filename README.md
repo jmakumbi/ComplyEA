@@ -30,7 +30,7 @@ ComplyEA helps legal firms and companies manage regulatory compliance obligation
 ## Prerequisites
 
 - .NET Core 3.1 SDK
-- SQL Server LocalDB (or SQL Server)
+- PostgreSQL 15+
 - DevExpress Universal Subscription (v20.2.13)
 
 ## Getting Started
@@ -38,23 +38,34 @@ ComplyEA helps legal firms and companies manage regulatory compliance obligation
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/ComplyEA.git
+git clone https://github.com/jmakumbi/ComplyEA.git
 cd ComplyEA
 ```
 
-### 2. Configure the database connection
+### 2. Set up PostgreSQL
 
-Edit `ComplyEA.Blazor.Server/appsettings.json`:
+Create the database user and databases:
+
+```sql
+CREATE USER complyea WITH PASSWORD '<your-password>';
+CREATE DATABASE "ComplyEA" OWNER complyea;
+CREATE DATABASE "ComplyEAEasyTest" OWNER complyea;
+```
+
+### 3. Configure the database connection
+
+Edit `ComplyEA.Blazor.Server/appsettings.json` with your PostgreSQL server details:
 
 ```json
 {
   "ConnectionStrings": {
-    "ConnectionString": "Integrated Security=SSPI;Pooling=false;Data Source=(localdb)\\mssqllocaldb;Initial Catalog=ComplyEA"
+    "ConnectionString": "XpoProvider=Postgres;Server=<host>;Port=5432;Database=ComplyEA;User Id=complyea;Password=<password>",
+    "EasyTestConnectionString": "XpoProvider=Postgres;Server=<host>;Port=5432;Database=ComplyEAEasyTest;User Id=complyea;Password=<password>"
   }
 }
 ```
 
-### 3. Build and run
+### 4. Build and run
 
 ```bash
 dotnet build ComplyEA.sln
@@ -63,7 +74,7 @@ dotnet run --project ComplyEA.Blazor.Server
 
 The application will be available at `https://localhost:5001`.
 
-### 4. Login
+### 5. Login
 
 **Default Admin Account:**
 - Username: `Admin`
@@ -224,50 +235,72 @@ Uses separate database `ComplyEAEasyTest`.
 
 - Docker and Docker Compose
 - DevExpress NuGet API key (from [nuget.devexpress.com](https://nuget.devexpress.com))
+- PostgreSQL 15+ accessible from the Docker host
 
-### Quick Start
+### Build locally with Docker Compose
 
 1. Copy `.env.example` to `.env` and fill in your values:
    ```bash
    cp .env.example .env
-   # Edit .env with your DevExpress NuGet key and database password
+   # Edit .env with your DevExpress NuGet key
    ```
 
 2. Build and run:
    ```bash
-   bash scripts/docker-local.sh
+   docker compose up --build -d
    ```
 
-3. Access the application at `http://localhost:5000`
+3. Access the application at `http://localhost:8080`
 
-### Build Image Only
+### Build image only
 
 ```bash
-bash scripts/docker-build.sh
+docker build \
+  --build-arg DEVEXPRESS_NUGET_KEY=<your-key> \
+  --build-arg DEVEXPRESS_NUGET_USER=<your-email> \
+  -t complyea .
 ```
-
-### Production Deployment
-
-The application uses PostgreSQL in production. Connection string format:
-```
-XpoProvider=Postgres;Server=<host>;Port=5432;Database=ComplyEA;User Id=<user>;Password=<password>
-```
-
-### ZimaOS Deployment
-
-Import `deploy/zimaos/docker-compose.yml` as a Docker Compose app in ZimaOS.
 
 ### CI/CD
 
-GitHub Actions workflow (`.github/workflows/build-and-push.yml`) builds and pushes to GitHub Container Registry on push to `master` or version tags.
+GitHub Actions workflow (`.github/workflows/build-and-push.yml`) automatically builds and pushes to GitHub Container Registry on every push to `master` or version tags.
 
-Required GitHub Secrets:
-- `DEVEXPRESS_NUGET_KEY` - DevExpress NuGet API key
-- `DEVEXPRESS_NUGET_USER` - DevExpress NuGet username (default: `DevExpress`)
+**Docker image**: `ghcr.io/jmakumbi/complyea:master` (private)
+
+**Required GitHub Secrets:**
+| Secret | Description |
+|--------|-------------|
+| `DEVEXPRESS_NUGET_KEY` | DevExpress NuGet API key |
+| `DEVEXPRESS_NUGET_USER` | DevExpress NuGet username |
+
+(`GITHUB_TOKEN` is provided automatically by GitHub Actions.)
+
+### ZimaOS Deployment (Production)
+
+ComplyEA deploys to ZimaOS as a single Docker container, connecting to an external PostgreSQL database on the host.
+
+**Setup overview:**
+
+1. Create a GitHub PAT with `read:packages` scope (no expiration)
+2. SSH into ZimaOS and authenticate Docker to ghcr.io:
+   ```bash
+   docker login ghcr.io -u jmakumbi -p <PAT>
+   ```
+3. Install via **ZimaOS App Store > Install a Custom App** using the docker-compose template from `deploy/zimaos/docker-compose.example.yml`
+4. Access at `http://<zimaos-ip>:8080`
+
+**Updating after a new build:**
+```bash
+docker pull ghcr.io/jmakumbi/complyea:master
+docker stop complyea && docker rm complyea
+cd /opt/complyea && docker compose up -d
+```
+
+See `deploy_to_zimaos.md` (local, not in git) for full deployment instructions with credentials.
 
 ## License
 
-[Add your license here]
+Proprietary. All rights reserved.
 
 ## Support
 
