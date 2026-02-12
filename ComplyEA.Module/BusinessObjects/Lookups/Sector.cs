@@ -7,7 +7,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("Sector")]
+    [ImageName("BO_Department")]
     public class Sector : BaseLookup
     {
         public Sector(Session session) : base(session) { }

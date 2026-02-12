@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("ObligationStatus")]
+    [ImageName("State_Task_Completed")]
     public class ObligationStatus : BaseLookup
     {
         public ObligationStatus(Session session) : base(session) { }

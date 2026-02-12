@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("DeliveryStatus")]
+    [ImageName("State_Priority_Normal")]
     public class DeliveryStatus : BaseLookup
     {
         public DeliveryStatus(Session session) : base(session) { }

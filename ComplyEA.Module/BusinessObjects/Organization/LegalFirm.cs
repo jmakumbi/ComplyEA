@@ -10,7 +10,7 @@ namespace ComplyEA.Module.BusinessObjects.Organization
 {
     [DefaultClassOptions]
     [NavigationItem("Organization")]
-    [ImageName("LegalFirm")]
+    [ImageName("BO_Organization")]
     public class LegalFirm : BaseObject
     {
         public LegalFirm(Session session) : base(session) { }

@@ -6,7 +6,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("CalendarProvider")]
+    [ImageName("BO_Appointment")]
     public class CalendarProvider : BaseLookup
     {
         public CalendarProvider(Session session) : base(session) { }

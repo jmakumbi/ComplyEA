@@ -9,7 +9,7 @@ namespace ComplyEA.Module.BusinessObjects.Configuration
 {
     [DefaultClassOptions]
     [NavigationItem("Configuration")]
-    [ImageName("EmailTemplate")]
+    [ImageName("BO_Contact")]
     public class EmailTemplate : BaseObject
     {
         public EmailTemplate(Session session) : base(session) { }

@@ -8,7 +8,7 @@ namespace ComplyEA.Module.BusinessObjects.Security
 {
     [DefaultClassOptions]
     [NavigationItem("Security")]
-    [ImageName("ApplicationUser")]
+    [ImageName("BO_User")]
     public class ApplicationUser : PermissionPolicyUser
     {
         public ApplicationUser(Session session) : base(session) { }

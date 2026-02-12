@@ -9,7 +9,7 @@ namespace ComplyEA.Module.BusinessObjects.Configuration
 {
     [DefaultClassOptions]
     [NavigationItem("Configuration")]
-    [ImageName("CompanyReminderSettings")]
+    [ImageName("BO_Scheduler")]
     public class CompanyReminderSettings : BaseObject
     {
         public CompanyReminderSettings(Session session) : base(session) { }

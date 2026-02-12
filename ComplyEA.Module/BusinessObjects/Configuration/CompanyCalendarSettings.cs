@@ -11,7 +11,7 @@ namespace ComplyEA.Module.BusinessObjects.Configuration
 {
     [DefaultClassOptions]
     [NavigationItem("Configuration")]
-    [ImageName("CompanyCalendarSettings")]
+    [ImageName("BO_Appointment")]
     public class CompanyCalendarSettings : BaseObject
     {
         public CompanyCalendarSettings(Session session) : base(session) { }

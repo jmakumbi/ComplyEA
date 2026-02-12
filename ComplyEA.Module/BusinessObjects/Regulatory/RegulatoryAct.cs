@@ -9,7 +9,7 @@ namespace ComplyEA.Module.BusinessObjects.Regulatory
 {
     [DefaultClassOptions]
     [NavigationItem("Regulatory")]
-    [ImageName("RegulatoryAct")]
+    [ImageName("BO_Contract")]
     public class RegulatoryAct : BaseObject
     {
         public RegulatoryAct(Session session) : base(session) { }

@@ -7,7 +7,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("ReminderType")]
+    [ImageName("BO_Scheduler")]
     public class ReminderType : BaseLookup
     {
         public ReminderType(Session session) : base(session) { }

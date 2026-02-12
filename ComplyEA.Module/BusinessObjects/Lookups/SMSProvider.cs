@@ -5,7 +5,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("SMSProvider")]
+    [ImageName("BO_Phone")]
     public class SMSProvider : BaseLookup
     {
         public SMSProvider(Session session) : base(session) { }

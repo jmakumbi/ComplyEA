@@ -5,7 +5,7 @@ namespace ComplyEA.Module.BusinessObjects.Lookups
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("EmailProvider")]
+    [ImageName("BO_Contact")]
     public class EmailProvider : BaseLookup
     {
         public EmailProvider(Session session) : base(session) { }

@@ -7,7 +7,7 @@ namespace ComplyEA.Module.BusinessObjects.Regulatory
 {
     [DefaultClassOptions]
     [NavigationItem("Regulatory")]
-    [ImageName("TemplateCategory")]
+    [ImageName("BO_Folder")]
     public class TemplateCategory : BaseObject
     {
         public TemplateCategory(Session session) : base(session) { }

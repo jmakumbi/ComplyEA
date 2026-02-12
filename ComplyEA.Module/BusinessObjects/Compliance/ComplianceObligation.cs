@@ -12,7 +12,7 @@ namespace ComplyEA.Module.BusinessObjects.Compliance
 {
     [DefaultClassOptions]
     [NavigationItem("Compliance")]
-    [ImageName("ComplianceObligation")]
+    [ImageName("BO_Task")]
     [Appearance("Overdue", AppearanceItemType = "ViewItem", TargetItems = "*",
         Context = "ListView", Criteria = "[Status.Code] = 'OVERDUE'",
         BackColor = "255, 205, 210", FontColor = "198, 40, 40", FontStyle = System.Drawing.FontStyle.Bold)]

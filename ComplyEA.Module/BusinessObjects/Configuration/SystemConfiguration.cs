@@ -8,7 +8,7 @@ namespace ComplyEA.Module.BusinessObjects.Configuration
 {
     [DefaultClassOptions]
     [NavigationItem("Administration")]
-    [ImageName("SystemConfiguration")]
+    [ImageName("Action_Settings")]
     public class SystemConfiguration : BaseObject
     {
         public SystemConfiguration(Session session) : base(session) { }

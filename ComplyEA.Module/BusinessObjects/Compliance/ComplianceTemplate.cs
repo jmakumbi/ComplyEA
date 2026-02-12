@@ -10,7 +10,7 @@ namespace ComplyEA.Module.BusinessObjects.Compliance
 {
     [DefaultClassOptions]
     [NavigationItem("Compliance")]
-    [ImageName("ComplianceTemplate")]
+    [ImageName("BO_Report")]
     public class ComplianceTemplate : BaseObject
     {
         public ComplianceTemplate(Session session) : base(session) { }
