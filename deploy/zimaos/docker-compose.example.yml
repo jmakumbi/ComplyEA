@@ -1,0 +1,16 @@
+name: complyea
+
+# ZimaOS deployment for ComplyEA
+# Copy this file to docker-compose.yml and fill in your credentials
+# See deploy_to_zimaos.md for full instructions
+
+services:
+  app:
+    image: ghcr.io/jmakumbi/complyea:master
+    container_name: complyea
+    ports:
+      - "8080:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__ConnectionString=XpoProvider=Postgres;Server=<DB_HOST>;Port=5432;Database=ComplyEA;User Id=<DB_USER>;Password=<DB_PASSWORD>
+    restart: unless-stopped

@@ -74,3 +74,8 @@ appsettings.*.local.json
 .env.local
 .env.*.local
 !.env.example
+
+# Deployment files with credentials (use .example versions as templates)
+deploy_to_zimaos.md
+deploy/zimaos/docker-compose.yml
+!deploy/zimaos/docker-compose.example.yml
